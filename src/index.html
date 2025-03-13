@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Navigation & Forms</title>
+    <link rel="stylesheet" href="../src/style.css">  
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" id="nav-home">Home</a></li>
+            <li><a href="#" id="nav-card-set">Card Set</a></li>
+            <li><a href="#" id="nav-about">About</a></li>
+        </ul>
+    </nav>
+
+    <main id="content">
+        <section id="home-section">
+            <h1>Welcome to Home</h1>
+        </section>
+
+        <section id="card-set-section" style="display: none;">
+            <h1>Card Set Page</h1>
+        </section>
+
+        <section id="about-section" style="display: none;">
+            <h1>About Page</h1>
+        </section>
+    </main>
+
+    <form id="create-set-form">
+        <label for="set-name">Set Name:</label>
+        <input type="text" id="set-name" name="set-name" required>
+        <button type="submit">Create Set</button>
+        <p id="set-error" style="color: red; display: none;">Set name cannot be empty</p>
+    </form>
+
+    <form id="add-card-form">
+        <label for="card-content">Card Content:</label>
+        <input type="text" id="card-content" name="card-content" required>
+        <button type="submit">Add Card</button>
+        <p id="card-error" style="color: red; display: none;">Card content cannot be empty</p>
+    </form>
+
+    <script>
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                document.querySelectorAll("main section").forEach(section => section.style.display = "none");
+                if (this.id === "nav-home") document.getElementById("home-section").style.display = "block";
+                if (this.id === "nav-card-set") document.getElementById("card-set-section").style.display = "block";
+                if (this.id === "nav-about") document.getElementById("about-section").style.display = "block";
+            });
+        });
+
+        document.getElementById("create-set-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const setName = document.getElementById("set-name").value.trim();
+            if (setName === "") {
+                document.getElementById("set-error").style.display = "block";
+            } else {
+                document.getElementById("set-error").style.display = "none";
+                alert("Set created: " + setName);
+            }
+        });
+
+        document.getElementById("add-card-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const cardContent = document.getElementById("card-content").value.trim();
+            if (cardContent === "") {
+                document.getElementById("card-error").style.display = "block";
+            } else {
+                document.getElementById("card-error").style.display = "none";
+                alert("Card added: " + cardContent);
+            }
+        });
+    </script>
+</body>
+</html>

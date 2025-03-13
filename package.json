@@ -1,0 +1,28 @@
+{
+  "name": "testing_and_optimization_project",
+  "version": "1.0.0",
+  "description": "this is the last project for frontend optimization and testing by udacity",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "chai": "^5.2.0",
+    "cypress": "^14.2.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-cypress": "^4.2.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-shell": "^0.8.0",
+    "mocha": "^11.1.0",
+    "parcel": "^2.13.3"
+  }
+}
